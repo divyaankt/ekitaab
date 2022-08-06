@@ -1,0 +1,42 @@
+{%  extends "base.html" %}
+{% load static %}
+{%  load static %}
+{%  block main_css %}
+  <link rel=stylesheet type="text/css" href='{%  static "css/main.css"  %}'>
+  <style>
+    body{
+      background-image: url('{% static "img/bookstore.jpg" %}');
+      background-repeat: no-repeat;
+    }
+    p{
+      color: white;
+    }
+    .contact_box{
+      height:600px;
+      width: 1000px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin-top: 300px;
+      margin-bottom: -180px;
+      transform: translate(-50%, -50%);
+      background-color: orange;
+    }
+  </style>
+{%  endblock  %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 contact_box">
+        <h4 class="text-center">{{ content }}</h4>
+        <hr/>
+          <form method="POST">{% csrf_token %}
+            {{ form }}
+            <hr/>
+            <button type="submit" class="btn btn-warning">SUBMIT</button>
+          </form>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

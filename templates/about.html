@@ -1,0 +1,40 @@
+{%  extends "base.html" %}
+{%  load static %}
+
+{%  block main_css %}
+  <link rel=stylesheet type="text/css" href='{%  static "css/main.css"  %}'>
+  <style>
+    body{
+      background-image: url('{% static "img/bookstore.jpg" %}');
+      background-repeat: no-repeat;
+    }
+    p{
+      color: white;
+    }
+    .home_box{
+      height:250px;
+      width: 800px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin-top: 200px;
+      margin-bottom: 0px;
+      transform: translate(-50%, -50%);
+      background-color: orange;
+    }
+  </style>
+{%  endblock  %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="text-center home_box">
+      <p style="margin-top: 100px;">
+        We are a company which, as the name suggests, is an eCommerce platform for Books of all genres.
+        Our company was founded in the year 2010 by Mr. Divyaank Tiwari. We have grown exponentially in the past 8 years from 14 employees to almost 16,000!!!
+      </p>
+  </div>
+</div>
+
+{% endblock %}
+

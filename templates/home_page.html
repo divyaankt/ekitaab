@@ -1,0 +1,82 @@
+{%  extends "base.html" %}
+{%  load static %}
+
+{%  block main_css %}
+  <link rel=stylesheet type="text/css" href='{%  static "css/main.css"  %}'>
+  <style>
+    body{
+      background-image: url('{% static "img/bookstore.jpg" %}');
+      background-repeat: no-repeat;
+    }
+    p{
+      color: white;
+    }
+    .home_box{
+      height:490px;
+      width: 800px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin-top: 300px;
+      margin-bottom: -60px;
+      transform: translate(-50%, -50%);
+      background-color: orange;
+    }
+  </style>
+{%  endblock  %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="text-center home_box">
+      {% if request.user.is_authenticated %}
+      <div class="row">
+        <div class="col">
+          <p>WELCOME USER!!</p>
+          <p>YOU MAY NOW VISIT OUR PRODUCTS PAGE AND HAVE A LOOK AT THE VARIETY OF BOOKS WE HAVE IN OUR REPOSITORY</p>
+          <p>IF YOU ARE CONFUSED GO TO THE SEARCH OPTION IN THE NAVBAR TO BROWSE THE BOOKS BELONGING TO YOUR GENRE</p>
+        </div>
+      </div>
+      {% else %}
+      <h1>ekitaab.com</h1>
+      <h3>HELLO THERE!!</h3>
+      <h3>WELCOME TO ekitaab.com!</h3>
+      <p>
+        Do you often wish that there was a platform like Amazon dedicated fully to books?
+      </p>
+      <p>
+        Do you feel that sometimes you have to curtail your reading habits simply because the books are exhorbitantly priced?
+      </p>
+      <p>
+        Moreover, do you sometime feel confused while choosing the next book or genre that you want to explore?
+      </p>
+      <h4>
+        Worry no more reading afficionados!!!!
+      </h4>
+      <p>
+        We at ekitaab.com are here to satiate your hunger for books. We have almost all the books from a variety of genres like Dystopian, Sci-Fi, Romance etc for you to choose that too at an affordable price.
+      </p>
+      <!-- <p>
+        We are a company which, as the name suggests, is an eCommerce platform for Books of all genres.
+        Our company was founded in the year 2010 by Mr. Divyaank Tiwari. We have grown exponentially in the past 8 years from 14 employees to almost 16,000!!!
+      </p> -->
+      <p>
+        So what are you waiting for????
+      </p>
+      <p>
+        Just Register yourself and Login so as to explore our awesome platform. 
+      </p>
+      {% endif %}
+   
+  </div>
+  <!-- {% if request.user.is_authenticated %}
+  <div class="row">
+    <div class="col">
+      {{ after_login }}
+    </div>
+  </div>
+      {% endif %} -->
+</div>
+
+{% endblock %}
+

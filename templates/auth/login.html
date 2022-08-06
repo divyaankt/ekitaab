@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{%  load static %}
+{%  block main_css %}
+  <link rel=stylesheet type="text/css" href='{%  static "css/main.css"  %}'>
+  <style>
+    body{
+    background-image: url('{% static "img/bookstore.jpg" %}');
+    background-repeat: no-repeat;
+    }
+    .login_box{
+		height:450px;
+		width: 400px;
+		background-color: lightblue;
+		position: relative;
+		top: 50%;
+	    left: 50%;
+	    margin-top: 250px;
+	    margin-bottom: -60px;
+	    transform: translate(-50%, -50%);
+		background-color: orange;
+	}
+  </style>
+{%  endblock  %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 login_box">
+			<h4 class="text-center">LOGIN</h4>
+			<hr/>
+			<form method="POST">{% csrf_token %}
+			    {{ form }}
+			    <hr/>
+			   	<button type="submit" class="btn btn-warning mt-3 mx-10">SUBMIT</button>
+			</form>
+			<hr/>
+			<p>
+				<h5>If you cant enter even after logging in:</h5>
+				<ol>
+					<li><h6>Your Username might be invalid</h6></li>
+					<li><h6>Your Password might be incorrect</h6></li>
+				</ol>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

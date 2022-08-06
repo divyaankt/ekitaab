@@ -1,0 +1,14 @@
+<form method="POST" action='{% url "cart:update" %}' class="form">{% csrf_token %}
+	<input type="hidden" name="product_id" value="{{ product.id }}"/>
+	{% if request.user.is_authenticated %}<!-- FOR ACTUAL UDEMY CODE REMOVE THIS -->
+		{% if in_cart %}
+			<button type="submit" class="btn btn-warning btn-sm">REMOVE?</button>
+		{% else %}
+			{% if product in cart.products.all %}
+			<button type="submit" class="btn btn-warning">REMOVE?</button>
+			{% else %}
+			<button type="submit" class="btn btn-warning">ADD TO CART?</button>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+</form>

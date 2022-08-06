@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{%  load static %}
+{%  block main_css %}
+  <link rel=stylesheet type="text/css" href='{%  static "css/main.css"  %}'>
+  <style>
+    body{
+    background-image: url('{% static "img/bookstore.jpg" %}');
+    background-repeat: no-repeat;
+    }
+    .register_box{
+	height:590px;
+	width: 700px;
+	top: 50%;
+    left: 50%;
+    margin-top: 300px;
+    margin-bottom: -160px;
+ 	transform: translate(-50%, -50%);
+    background-color: orange;
+	position: relative;
+	}
+  </style>
+{%  endblock  %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 register_box">
+			<h4 class="text-center">REGISTER YOURSELF</h4>
+			<hr/>
+			<form method="POST">{% csrf_token %}
+			        {{ form }}
+			        <hr/>
+			   	<br/><button type="submit" class="btn btn-warning btn-center">SUBMIT</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
